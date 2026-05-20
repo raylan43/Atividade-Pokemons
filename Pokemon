@@ -1,0 +1,96 @@
+<?php
+
+class Pokemon {
+
+    public $nome;
+    public $tipo;
+    public $experiencia;
+    public $vida;
+    public $ataque;
+    public $defesa;
+    public $velocidade;
+    public $nivel;
+
+    public function __construct($nome, $tipo, $experiencia, $vida, $ataque, $defesa, $velocidade, $nivel) {
+        $this->nome = $nome;
+        $this->tipo = $tipo;
+        $this->experiencia = $experiencia;
+        $this->vida = $vida;
+        $this->ataque = $ataque;
+        $this->defesa = $defesa;
+        $this->velocidade = $velocidade;
+        $this->nivel = $nivel;
+    }
+
+    public function batalhar() {
+        echo $this->nome . " entrou em batalha!<br>";
+    }
+
+    public function subirNivel() {
+        $this->nivel++;
+        echo $this->nome . " subiu para o nível " . $this->nivel . "!<br>";
+    }
+
+    public function ganharExperiencia($xp) {
+        $this->experiencia += $xp;
+        echo $this->nome . " ganhou " . $xp . " pontos de experiência!<br>";
+    }
+
+    public function aumentarVida($valor) {
+        $this->vida += $valor;
+        echo $this->nome . " aumentou " . $valor . " pontos de vida!<br>";
+    }
+
+    public function exibirDados() {
+        echo "<hr>";
+        echo "Nome: " . $this->nome . "<br>";
+        echo "Tipo: " . $this->tipo . "<br>";
+        echo "Experiência: " . $this->experiencia . "<br>";
+        echo "Vida: " . $this->vida . "<br>";
+        echo "Ataque: " . $this->ataque . "<br>";
+        echo "Defesa: " . $this->defesa . "<br>";
+        echo "Velocidade: " . $this->velocidade . "<br>";
+        echo "Nível: " . $this->nivel . "<br>";
+    }
+}
+
+echo "<h2>Cadastro do Pokémon 1</h2>";
+
+$nome1 = readline("Digite o nome do Pokémon 1: ");
+$tipo1 = readline("Digite o tipo: ");
+$xp1 = readline("Digite a experiência: ");
+$vida1 = readline("Digite a vida: ");
+$ataque1 = readline("Digite o ataque: ");
+$defesa1 = readline("Digite a defesa: ");
+$velocidade1 = readline("Digite a velocidade: ");
+$nivel1 = readline("Digite o nível: ");
+
+$pokemon1 = new Pokemon($nome1, $tipo1, $xp1, $vida1, $ataque1, $defesa1, $velocidade1, $nivel1);
+
+echo "<h2>Cadastro do Pokémon 2</h2>";
+
+$nome2 = readline("Digite o nome do Pokémon 2: ");
+$tipo2 = readline("Digite o tipo: ");
+$xp2 = readline("Digite a experiência: ");
+$vida2 = readline("Digite a vida: ");
+$ataque2 = readline("Digite o ataque: ");
+$defesa2 = readline("Digite a defesa: ");
+$velocidade2 = readline("Digite a velocidade: ");
+$nivel2 = readline("Digite o nível: ");
+
+$pokemon2 = new Pokemon($nome2, $tipo2, $xp2, $vida2, $ataque2, $defesa2, $velocidade2, $nivel2);
+
+$pokemon1->batalhar();
+$pokemon1->ganharExperiencia(300);
+$pokemon1->subirNivel();
+$pokemon1->aumentarVida(20);
+
+$pokemon2->batalhar();
+$pokemon2->ganharExperiencia(500);
+$pokemon2->subirNivel();
+$pokemon2->aumentarVida(30);
+
+$pokemon1->exibirDados();
+$pokemon2->exibirDados();
+
+?>
